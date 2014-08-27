@@ -33,7 +33,14 @@ module.exports = function(grunt) {
      * test task
      */
     qunit: {
-      all: ['test/**/*.html']
+      all: {
+        options: {
+          timeout: 5000,
+          urls: [
+            'test/index.html'
+          ]
+        }
+      }
     },
 
     /**
