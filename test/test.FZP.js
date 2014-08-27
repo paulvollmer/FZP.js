@@ -82,12 +82,12 @@ describe('FZP.js', function() {
   });
 
   describe('addBus() with params', function() {
-    it('', function() {
+    it('should return a bus object with the defined params', function() {
       var fzp = new FZP();
-      fzp.addBus({id: 123, nodeMember: 'foo'});
+      fzp.addBus({id: 123, connectorId: ['foo']});
       assert.equal(fzp.buses.length, 1);
       assert.equal(fzp.buses[0].id, 123);
-      assert.equal(fzp.buses[0].nodeMember, 'foo');
+      assert.equal(fzp.buses[0].connectorId[0], 'foo');
     });
   });
 

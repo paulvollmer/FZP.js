@@ -1,5 +1,5 @@
 /**
- * the FZP object
+ * The FZP object constructor.
  */
 function FZP() {
   
@@ -26,9 +26,14 @@ function FZP() {
   this.buses = [];
 }
 
-module.exports = FZP;
+if (typeof(module) !== 'undefined' && typeof(module.exports) !== 'undefined') {
+  module.exports = FZP;
+}
 
 
+/**
+ * Add a tag to the tags array.
+ */
 FZP.prototype.addTag = function(tag) {
   //console.log('Call FZP.addTag() tag:', tag);
 
@@ -38,6 +43,9 @@ FZP.prototype.addTag = function(tag) {
   return this;
 };
 
+/**
+ * Add a property to the properties array.
+ */
 FZP.prototype.addProperty = function(property) {
   //console.log('Call FZP.addProperty() property:', property);
 
@@ -50,6 +58,9 @@ FZP.prototype.addProperty = function(property) {
   return this;
 };
 
+/**
+ * Add a connector to the connectors array.
+ */
 FZP.prototype.addConnector = function(connector) {
   //console.log('Call FZP.addConnector() connector:', connector);
 
@@ -81,6 +92,9 @@ FZP.prototype.addConnector = function(connector) {
   return this;
 };
 
+/**
+ * Add a layer to the layers array.
+ */
 FZP.prototype.addLayers = function(view, layers) {
   //console.log('Call FZP.addLayers()');
 
@@ -89,12 +103,15 @@ FZP.prototype.addLayers = function(view, layers) {
   return this;
 };
 
+/**
+ * Add a bus to the buses array.
+ */
 FZP.prototype.addBus = function(bus) {
   //console.log('Call FZP.addBus() bus:', bus);
 
   var tmp = {
     id: bus && bus.id || 'temp',
-    nodeMember: bus && bus.nodeMember || null
+    connectorId: bus && bus.connectorId || null
   };
   this.buses.push(tmp);
 
