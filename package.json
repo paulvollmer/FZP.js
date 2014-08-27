@@ -8,6 +8,13 @@
     "fritzing",
     "fzp"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/WrongEntertainment/FZP.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WrongEntertainment/FZP.js/issues"
+  },
   "main": "FZP.js",
   "directories": {
     "test": "test"
