@@ -32,14 +32,12 @@ module.exports = function(grunt) {
     /**
      * test task
      */
-    qunit: {
-      all: {
+    mochaTest: {
+      test: {
         options: {
-          timeout: 5000,
-          urls: [
-            'test/index.html'
-          ]
-        }
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
       }
     },
 
@@ -52,7 +50,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-mocha-test');
+
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
 
 };
