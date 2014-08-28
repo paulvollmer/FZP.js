@@ -12,7 +12,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['FZP.js', 'test/*.js'],
+        files: ['FZP.js', 'FZP.XML.js', 'test/*.js'],
         tasks: ['jshint', 'qunit'],
         options: {
           spawn: false,
@@ -26,6 +26,7 @@ module.exports = function(grunt) {
     jshint: {
       all: ['Gruntfile.js',
             'FZP.js',
+            'FZP.XML.js',
             'test/**/*.js']
     },
 
