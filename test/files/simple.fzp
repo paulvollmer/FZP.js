@@ -73,4 +73,9 @@
       </views>
     </connector>
   </connectors>
+  <buses>
+    <bus id="anode">
+      <nodeMember connectorId="connector1"/>
+    </bus>
+  </buses>
 </module>
