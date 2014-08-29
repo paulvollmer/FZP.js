@@ -9,38 +9,6 @@ var simpleFZP = fs.readFileSync('./test/files/simple.fzp', {encoding: 'utf8'});
 describe('FZP.XML.js', function() {
 
 
-  describe('XMLUtil', function() {
-    
-    describe('LINEBREAK', function() {
-      it('should return the linebreak', function() {
-        assert.equal(FZPXML.XMLUtil.LINEBREAK, '\n');
-      });
-    });
-
-    describe('element', function() {
-      it('should return an xml element', function() {
-        var xml = FZPXML.XMLUtil.element('fritzing');
-        assert.equal(xml, '<fritzing/>');
-      });
-      it('should return an xml element with content', function() {
-        var xml = FZPXML.XMLUtil.element('fritzing', 'part');
-        assert.equal(xml, '<fritzing>part</fritzing>');
-      });
-      it('should return an xml element with content and attributes', function() {
-        var atts = {
-          att1: 'a1',
-          att2: 'This is in "double quotes" and this is in \'single quotes\'',
-          att3: 'This is in \'single quotes\' and this is in "double quotes"'
-        };
-        var xml = FZPXML.XMLUtil.element('fritzing', 'part', atts);
-        var expected = '<fritzing att1=\'a1\' att2=\'This is in "double quotes" and this is in &quot;single quotes&quot;\' att3="This is in \'single quotes\' and this is in &apos;double quotes&apos;">part</fritzing>';
-        assert.equal(xml, expected);
-      });
-    });
-
-  });
-
-
   describe('FZPparseXML', function() {
     var fzp = FZPXML.FZPparseXML(simpleFZP);
     
