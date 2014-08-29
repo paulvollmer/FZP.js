@@ -80,16 +80,19 @@ describe('FZP.js', function() {
           breadboard: {
             layer: 'breadboard_layer',
             svg: 'breadboard_svg',
+            leg: 'breadboard_leg',
             terminal: 'breadboard_terminal'
           },
           schematic: {
             layer: 'schematic_layer',
             svg: 'schematic_svg',
+            leg: 'schematic_leg',
             terminal: 'schematic_terminal'
           },
           pcb: {
             layer: 'pcb_layer',
             svg: 'pcb_svg',
+            leg: 'pcb_leg',
             terminal: 'pcb_terminal'
           }
         }
@@ -103,14 +106,17 @@ describe('FZP.js', function() {
 
       assert.equal(fzp.connectors[0].views.breadboard.layer, 'breadboard_layer');
       assert.equal(fzp.connectors[0].views.breadboard.svg, 'breadboard_svg');
+      assert.equal(fzp.connectors[0].views.breadboard.leg, 'breadboard_leg');
       assert.equal(fzp.connectors[0].views.breadboard.terminal, 'breadboard_terminal');
 
       assert.equal(fzp.connectors[0].views.schematic.layer, 'schematic_layer');
       assert.equal(fzp.connectors[0].views.schematic.svg, 'schematic_svg');
+      assert.equal(fzp.connectors[0].views.schematic.leg, 'schematic_leg');
       assert.equal(fzp.connectors[0].views.schematic.terminal, 'schematic_terminal');
 
       assert.equal(fzp.connectors[0].views.pcb.layer, 'pcb_layer');
       assert.equal(fzp.connectors[0].views.pcb.svg, 'pcb_svg');
+      assert.equal(fzp.connectors[0].views.pcb.leg, 'pcb_leg');
       assert.equal(fzp.connectors[0].views.pcb.terminal, 'pcb_terminal');
     });
   });

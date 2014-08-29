@@ -79,20 +79,18 @@ FZP.prototype.addConnector = function(connector) {
   };
 
   if (connector && connector.views) {
-    if (connector.views.breadboard) {
-      tmp.views.breadboard.layer = connector.views.breadboard.layer || null;
-      tmp.views.breadboard.svg = connector.views.breadboard.svg || null;
-      tmp.views.breadboard.terminal = connector.views.breadboard.terminal || null;
-    }
-    if (connector.views.schematic) {
-      tmp.views.schematic.layer = connector.views.schematic.layer || null;
-      tmp.views.schematic.svg = connector.views.schematic.svg || null;
-      tmp.views.schematic.terminal = connector.views.schematic.terminal || null;
-    }
-    if (connector.views.pcb) {
-      tmp.views.pcb.layer = connector.views.pcb.layer || null;
-      tmp.views.pcb.svg = connector.views.pcb.svg || null;
-      tmp.views.pcb.terminal = connector.views.pcb.terminal || null;
+    var availableViews = ['breadboard', 'schematic', 'pcb'];
+    for (var i=0; i<availableViews.length; i++) {
+      if (connector.views[availableViews[i]]) {
+        // required
+        tmp.views[availableViews[i]].layer = connector.views[availableViews[i]].layer || null;
+        tmp.views[availableViews[i]].svg = connector.views[availableViews[i]].svg || null;
+        // optional
+        if (connector.views[availableViews[i]].terminal)
+          tmp.views[availableViews[i]].terminal = connector.views[availableViews[i]].terminal;
+        if (connector.views[availableViews[i]].leg)
+          tmp.views[availableViews[i]].leg = connector.views[availableViews[i]].leg;
+      }
     }
   }
 
