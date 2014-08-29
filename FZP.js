@@ -67,28 +67,35 @@ FZP.prototype.addConnector = function(connector) {
   //console.log('Call FZP.addConnector() connector:', connector);
 
   var tmp = {
-    id: '',
-    type: '',
-    name: '',
-    description: '',
+    id: connector && connector.id || null,
+    type: connector && connector.type || 'default',
+    name: connector && connector.name || 'untitled',
+    description: connector && connector.description || 'connector description here',
     views: {
-      breadboard: {
-        layer: '',
-        svg: '',
-        terminal: ''
-      },
-      schematic: {
-        layer: '',
-        svg: '',
-        terminal: ''
-      },
-      pcb: {
-        layer: '',
-        svg: '',
-        terminal: ''
-      }
+      breadboard: {},
+      schematic: {},
+      pcb: {}
     }
   };
+
+  if (connector && connector.views) {
+    if (connector.views.breadboard) {
+      tmp.views.breadboard.layer = connector.views.breadboard.layer || null;
+      tmp.views.breadboard.svg = connector.views.breadboard.svg || null;
+      tmp.views.breadboard.terminal = connector.views.breadboard.terminal || null;
+    }
+    if (connector.views.schematic) {
+      tmp.views.schematic.layer = connector.views.schematic.layer || null;
+      tmp.views.schematic.svg = connector.views.schematic.svg || null;
+      tmp.views.schematic.terminal = connector.views.schematic.terminal || null;
+    }
+    if (connector.views.pcb) {
+      tmp.views.pcb.layer = connector.views.pcb.layer || null;
+      tmp.views.pcb.svg = connector.views.pcb.svg || null;
+      tmp.views.pcb.terminal = connector.views.pcb.terminal || null;
+    }
+  }
+
   this.connectors.push(tmp);
 
   return this;

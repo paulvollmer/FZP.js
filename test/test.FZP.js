@@ -1,4 +1,3 @@
-
 var assert = require('assert');
 var FZP = require('../FZP.js');
 
@@ -49,18 +48,72 @@ describe('FZP.js', function() {
     });
   });
 
-  // describe('addConnector() without params', function() {
-  //   var fzp = new FZP();
-  //   // without params
-    
-  //   // with params
-  //   fzp.addConnector('foo');
-  //   assert.equal(fzp.connectors.length === 1);
-  // });
+  describe('addConnector() without params', function() {
+    it('should return the default bus object', function() {
+      var fzp = new FZP();
+      fzp.addConnector();
+      assert.equal(fzp.connectors.length, 1);
+    });
+  });
 
-  // describe('addConnector() with params', function() {
+  describe('addConnector() without params', function() {
+    it('should return the default connector object', function() {
+      var fzp = new FZP();
+      fzp.addConnector();
+      assert.equal(fzp.connectors.length, 1);
+      assert.equal(fzp.connectors[0].id, null);
+      assert.equal(fzp.connectors[0].type, 'default');
+      assert.equal(fzp.connectors[0].name, 'untitled');
+      assert.equal(fzp.connectors[0].description, 'connector description here');
+    });
+  });
 
-  // });
+  describe('addConnector() with params', function() {
+    it('should return a connector object with the defined params', function() {
+      var fzp = new FZP();
+      fzp.addConnector({
+        id: 123,
+        type: 'foo',
+        name: 'bar',
+        description: 'about foo',
+        views: {
+          breadboard: {
+            layer: 'breadboard_layer',
+            svg: 'breadboard_svg',
+            terminal: 'breadboard_terminal'
+          },
+          schematic: {
+            layer: 'schematic_layer',
+            svg: 'schematic_svg',
+            terminal: 'schematic_terminal'
+          },
+          pcb: {
+            layer: 'pcb_layer',
+            svg: 'pcb_svg',
+            terminal: 'pcb_terminal'
+          }
+        }
+      });
+
+      assert.equal(fzp.connectors.length, 1);
+      assert.equal(fzp.connectors[0].id, 123);
+      assert.equal(fzp.connectors[0].type, 'foo');
+      assert.equal(fzp.connectors[0].name, 'bar');
+      assert.equal(fzp.connectors[0].description, 'about foo');
+
+      assert.equal(fzp.connectors[0].views.breadboard.layer, 'breadboard_layer');
+      assert.equal(fzp.connectors[0].views.breadboard.svg, 'breadboard_svg');
+      assert.equal(fzp.connectors[0].views.breadboard.terminal, 'breadboard_terminal');
+
+      assert.equal(fzp.connectors[0].views.schematic.layer, 'schematic_layer');
+      assert.equal(fzp.connectors[0].views.schematic.svg, 'schematic_svg');
+      assert.equal(fzp.connectors[0].views.schematic.terminal, 'schematic_terminal');
+
+      assert.equal(fzp.connectors[0].views.pcb.layer, 'pcb_layer');
+      assert.equal(fzp.connectors[0].views.pcb.svg, 'pcb_svg');
+      assert.equal(fzp.connectors[0].views.pcb.terminal, 'pcb_terminal');
+    });
+  });
 
   // describe('addLayer() without params', function() {
   //   var fzp = new FZP();
