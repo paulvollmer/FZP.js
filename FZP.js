@@ -9,11 +9,13 @@ function FZP() {
   };
   this.title = '';
   this.version = '0.0.0';
-  this.description = '';
-  this.label = '';
+  this.description = 'no part description available';
+  this.label = 'fzp.js';
   this.author = [];
   this.date = (new Date());
-  this.url = '';
+  this.url = 'http://fritzing.org';
+  this.family = 'fzp';
+  this.variant = 'variant 1';
   this.tags = [];
   this.properties = [];
   this.views = {
