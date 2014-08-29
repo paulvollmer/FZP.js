@@ -7,7 +7,7 @@ function FZP() {
     version: '0.0.0',
     id: 'default'
   };
-  this.title = '';
+  this.title = 'untitled';
   this.version = '0.0.0';
   this.description = 'no part description available';
   this.label = 'fzp.js';

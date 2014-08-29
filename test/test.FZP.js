@@ -10,16 +10,13 @@ describe('FZP.js', function() {
     });
   });
 
-  describe('addTag() without params', function() {
+  describe('addTag()', function() {
     it('should return the default tag object', function() {
       var fzp = new FZP();
       fzp.addTag();
       assert.equal(fzp.tags.length, 1);
       assert.equal(fzp.tags[0], 'fritzing');
     });
-  });
-
-  describe('addTag() with params', function() {
     it('should return a tag object with the defined params', function() {
       var fzp = new FZP();
       fzp.addTag('foo');
@@ -28,7 +25,7 @@ describe('FZP.js', function() {
     });
   });
 
-  describe('addProperty() without params', function() {
+  describe('addProperty()', function() {
     it('should return the default property object', function() {
       var fzp = new FZP();
       fzp.addProperty();
@@ -36,9 +33,6 @@ describe('FZP.js', function() {
       assert.equal(fzp.properties[0].name, 'package');
       assert.equal(fzp.properties[0].value, 'fritzing');
     });
-  });
-
-  describe('addProperty() with params', function() {
     it('should return a property object with the defined params', function() {
       var fzp = new FZP();
       fzp.addProperty({name: 'foo', value: 123});
@@ -48,15 +42,7 @@ describe('FZP.js', function() {
     });
   });
 
-  describe('addConnector() without params', function() {
-    it('should return the default bus object', function() {
-      var fzp = new FZP();
-      fzp.addConnector();
-      assert.equal(fzp.connectors.length, 1);
-    });
-  });
-
-  describe('addConnector() without params', function() {
+  describe('addConnector()', function() {
     it('should return the default connector object', function() {
       var fzp = new FZP();
       fzp.addConnector();
@@ -66,9 +52,6 @@ describe('FZP.js', function() {
       assert.equal(fzp.connectors[0].name, 'untitled');
       assert.equal(fzp.connectors[0].description, 'connector description here');
     });
-  });
-
-  describe('addConnector() with params', function() {
     it('should return a connector object with the defined params', function() {
       var fzp = new FZP();
       fzp.addConnector({
@@ -122,15 +105,22 @@ describe('FZP.js', function() {
   });
 
   // describe('addLayer() without params', function() {
-  //   var fzp = new FZP();
-  //   fzp.addLayer('foo');
-    
-  //   assert.equal(fzp.tags.length === 1);
-  //   assert.equal(fzp.tags[0] === 'foo');
+  //   it('should return the default bus object', function() {
+  //     var fzp = new FZP();
+  //     fzp.addLayer('foo');
+  //     assert.equal(fzp.tags.length === 1);
+  //   });
   // });
 
+  // describe('addLayer() with params', function() {
+  //   it('should return a connector object with the defined params', function() {
+  //     var fzp = new FZP();
+  //     fzp.addLayer('foo');
+  //     assert.equal(fzp.tags.length === 1);
+  //   });
+  // });
 
-  describe('addBus() without params', function() {
+  describe('addBus()', function() {
     it('should return the default bus object', function() {
       var fzp = new FZP();
       fzp.addBus();
@@ -138,15 +128,21 @@ describe('FZP.js', function() {
       assert.equal(fzp.buses[0].id, 'temp');
       assert.equal(fzp.buses[0].nodeMember, null);
     });
-  });
-
-  describe('addBus() with params', function() {
     it('should return a bus object with the defined params', function() {
       var fzp = new FZP();
       fzp.addBus({id: 123, connectorId: ['foo']});
       assert.equal(fzp.buses.length, 1);
       assert.equal(fzp.buses[0].id, 123);
       assert.equal(fzp.buses[0].connectorId[0], 'foo');
+    });
+    it('should return a bus object with multiple connectors', function() {
+      var fzp = new FZP();
+      fzp.addBus({id: 123, connectorId: ['foo', 'bar', 'baz']});
+      assert.equal(fzp.buses.length, 1);
+      assert.equal(fzp.buses[0].id, 123);
+      assert.equal(fzp.buses[0].connectorId[0], 'foo');
+      assert.equal(fzp.buses[0].connectorId[1], 'bar');
+      assert.equal(fzp.buses[0].connectorId[2], 'baz');
     });
   });
 
