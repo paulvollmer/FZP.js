@@ -50,17 +50,17 @@ var XMLUtil = {
       // Determine which quote type to use around 
       // the attribute value
       if (apos_pos == -1 && quot_pos == -1) {
-        att_str = ' ' + att + "='" + att_value +  "'";
+        att_str = ' ' + att + "=\"" + att_value +  "\"";
         result += att_str;
         continue;
       }
       
       // Prefer the single quote unless forced to use double
       if (quot_pos != -1 && quot_pos < apos_pos) {
-        use_quote = this.APOS;
+        use_quote = this.QUOTE;
       }
       else {
-        use_quote = this.QUOTE;
+        use_quote = this.APOS;
       }
  
       // Figure out which kind of quote to escape

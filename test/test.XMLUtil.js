@@ -22,13 +22,16 @@ describe('XMLUtil.js', function() {
         assert.equal(xml, expected);
       });
       it('should return an xml element with content and attributes', function() {
-        var atts = {
-          att1: 'a1',
-          att2: 'This is in "double quotes" and this is in \'single quotes\'',
-          att3: 'This is in \'single quotes\' and this is in "double quotes"'
-        };
-        var xml = XMLUtil.element('fritzing', 'part', atts);
-        var expected = '<fritzing att1=\'a1\' att2=\'This is in "double quotes" and this is in &quot;single quotes&quot;\' att3="This is in \'single quotes\' and this is in &apos;double quotes&apos;">part</fritzing>';
+        var xml = XMLUtil.element('fritzing', 'part', {att: 'a1'});
+        var expected = '<fritzing att="a1">part</fritzing>';
+        assert.equal(xml, expected);
+
+        xml = XMLUtil.element('fritzing', 'part', {att: 'This is in "double quotes" and this is in \'single quotes\''});
+        expected = '<fritzing att="This is in &apos;double quotes&apos; and this is in \'single quotes\'">part</fritzing>';
+        assert.equal(xml, expected);
+
+        xml = XMLUtil.element('fritzing', 'part', {att: 'This is in \'single quotes\' and this is in "double quotes"'});
+        expected = '<fritzing att=\'This is in &quot;single quotes&quot; and this is in "double quotes"\'>part</fritzing>';
         assert.equal(xml, expected);
       });
     });
