@@ -17,6 +17,7 @@
   },
   "main": "FZP.js",
   "directories": {
+    "src": "src",
     "test": "test"
   },
   "scripts": {
