@@ -12,21 +12,26 @@ var XMLUtil = {
     '"': '&apos;'
   },
 
-  element: function(name, content, attributes) {
+  element: function(name, content, attributes, whitespace) {
     var att_str = '';
     if (attributes) { // tests false if this arg is missing!
         att_str = this.formatAttributes(attributes);
     }
     var xml;
+    var ws = whitespace || '';
     if (!content){
-        xml = '<'+name+att_str+'/>';
+        xml = ws+'<'+name+att_str+'/>';
     }
     else {
-        xml = '<'+name+att_str+'>'+content+'</'+name+'>';
+        xml = ws+'<'+name+att_str+'>'+content+'</'+name+'>';
     }
     return xml;
   },
   
+  elementNL: function(name, content, attributes, whitespace) {
+    return this.element(name, content, attributes, whitespace)+this.LINEBREAK;
+  },
+
   /**
    * Format a dictionary of attributes into a string suitable
    * for inserting into the start tag of an element.  Be smart
