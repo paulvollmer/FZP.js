@@ -1,7 +1,7 @@
 var assert = require('assert');
 var fs = require('fs');
-var FZP = require('../FZP.js');
-var FZPXML = require('../FZP.XML.js');
+var FZP = require('../src/FZP.js');
+var FZPXML = require('../src/FZP.XML.js');
 
 // read a simple test fzp...
 var simpleFZP = fs.readFileSync('./test/files/simple.fzp', {encoding: 'utf8'});

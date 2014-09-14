@@ -1,5 +1,5 @@
 var assert = require('assert');
-var FZP = require('../FZP.js');
+var FZP = require('../src/FZP.js');
 
 describe('FZP.js', function() {
 
