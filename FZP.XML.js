@@ -1,5 +1,5 @@
-
 var xml2js = require('xml2js').parseString;
+var XMLUtil = require('./src/XMLUtil.js');
 var FZP = require('./FZP.js');
 
 
