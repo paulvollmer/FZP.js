@@ -4,6 +4,7 @@
  */
 var XMLUtil = {
   // some settings
+  HEAD: '<?xml version="1.0" encoding="UTF-8"?>',
   LINEBREAK: '\n',
   APOS: "'",
   QUOTE: '"',

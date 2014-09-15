@@ -4,6 +4,12 @@ var XMLUtil = require('../src/XMLUtil.js');
 
 describe('XMLUtil.js', function() {
 
+  describe('HEAD', function() {
+    it('should return the xml head', function() {
+      assert.equal(XMLUtil.HEAD, '<?xml version="1.0" encoding="UTF-8"?>');
+    });
+  });
+
   describe('LINEBREAK', function() {
     it('should return the linebreak', function() {
       assert.equal(XMLUtil.LINEBREAK, '\n');
