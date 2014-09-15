@@ -10,7 +10,7 @@ function FZPstringifyXML(fzp) {
   console.log('Call FZP.XML.stringify() fzp:', fzp);
   
   // the content object. we're using an array to perform string concatenation faster.
-  var xml = ['<?xml version="1.0" encoding="UTF-8"?>'];
+  var xml = [XMLUtil.HEAD];
 
   xml.push(XMLUtil.element('title', fzp.title));
   xml.push(XMLUtil.element('version', fzp.version));
