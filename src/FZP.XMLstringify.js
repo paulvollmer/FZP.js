@@ -47,7 +47,7 @@ var FZPXMLstringify = {
     for (var i = 0; i < theTags.length; i++) {
       content.push(XMLUtil.element('tag', theTags[i]));
     }
-    return XMLUtil.element('tags', content.join(''));
+    return XMLUtil.element('tags', content.join(XMLUtil.LINEBREAK));
   },
 
   properties: function(theProperties) {
@@ -55,7 +55,7 @@ var FZPXMLstringify = {
     for (var i = 0; i < theProperties.length; i++) {
       content.push(XMLUtil.element('property', theProperties[i].value, {name: theProperties[i].name}));
     }
-    return XMLUtil.element('properties', content.join(''));
+    return XMLUtil.element('properties', content.join(XMLUtil.LINEBREAK));
   },
 
   // connectors: function(theConnectors) {
@@ -72,7 +72,7 @@ var FZPXMLstringify = {
       var nodeContent = XMLUtil.element('nodeMember', '', {connectorId: theBuses[i].connectorId});
       content.push(XMLUtil.element('bus', nodeContent, {id: theBuses[i].id}));
     }
-    return XMLUtil.element('buses', content.join(''));
+    return XMLUtil.element('buses', content.join(XMLUtil.LINEBREAK));
   },
 
   /**

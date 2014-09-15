@@ -79,7 +79,7 @@ describe('FZPXMLstringify.js', function() {
   describe('tags()', function() {
     it('should return the tags xml node as string', function() {
       var actual = FZPXMLstringify.tags(['foo', 'bar']);
-      var expected = '<tags><tag>foo</tag><tag>bar</tag></tags>';
+      var expected = '<tags><tag>foo</tag>\n<tag>bar</tag></tags>';
       assert.equal(actual, expected);
     });
   });
@@ -90,7 +90,7 @@ describe('FZPXMLstringify.js', function() {
         {name: 'foo', value: 123},
         {name: 'bar', value: 456}
       ]);
-      var expected = '<properties><property name="foo">123</property><property name="bar">456</property></properties>';
+      var expected = '<properties><property name="foo">123</property>\n<property name="bar">456</property></properties>';
       assert.equal(actual, expected);
     });
   });
@@ -109,7 +109,7 @@ describe('FZPXMLstringify.js', function() {
         {id: 'ground', connectorId: 'connector0'},
         {id: 'anode', connectorId: 'connector1'}
       ]);
-      var expected = '<buses><bus id="ground"><nodeMember connectorId="connector0"/></bus><bus id="anode"><nodeMember connectorId="connector1"/></bus></buses>';
+      var expected = '<buses><bus id="ground"><nodeMember connectorId="connector0"/></bus>\n<bus id="anode"><nodeMember connectorId="connector1"/></bus></buses>';
       assert.equal(actual, expected);
     });
   });
