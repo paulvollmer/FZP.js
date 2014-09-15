@@ -117,35 +117,4 @@ describe('FZP.XML.js', function() {
 
   });
 
-
-  describe('FZPstringifyXML', function() {
-
-    it('should return the xml as string', function() {
-      var fzp = new FZP();
-      fzp.date = '2014';
-      fzp.addBus({id: 'bus0', connectorId: '0'});
-
-      var actual = FZPXML.FZPstringifyXML(fzp);
-      var expected = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<title>untitled</title>',
-        '<version>0.0.0</version>',
-        '<description>no part description available</description>',
-        '<label>fzp.js</label>',
-        '<author></author>',
-        '<date>2014</date>',
-        '<url>http://fritzing.org</url>',
-        '<family>fzp</family>',
-        '<variant>variant 1</variant>',
-        '<tags></tags>',
-        '<properties></properties>',
-        // '<views></views>',
-        // '<connectors></connectors>',
-        '<buses></buses>'
-      ];
-      assert.equal(actual, expected.join('\n'));
-    });
-
-  });
-
 });
