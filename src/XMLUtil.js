@@ -13,6 +13,9 @@ var XMLUtil = {
     '"': '&apos;'
   },
 
+  /**
+   * Return a xml element as string
+   */
   element: function(name, content, attributes, whitespace) {
     var att_str = '';
     if (attributes) { // tests false if this arg is missing!
@@ -29,6 +32,9 @@ var XMLUtil = {
     return xml;
   },
   
+  /**
+   * Return a xml element with linebreak as string
+   */
   elementNL: function(name, content, attributes, whitespace) {
     return this.element(name, content, attributes, whitespace)+this.LINEBREAK;
   },
