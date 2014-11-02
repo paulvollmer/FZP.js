@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/WrongEntertainment/FZP.js.git"
+    "url": "git://github.com/paulvollmer/FZP.js.git"
   },
   "bugs": {
-    "url": "https://github.com/WrongEntertainment/FZP.js/issues"
+    "url": "https://github.com/paulvollmer/FZP.js/issues"
   },
   "main": "FZP.js",
   "directories": {
